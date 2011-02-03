@@ -120,7 +120,7 @@ imap <C-F> <C-R>=expand("%")<CR>
 vmap P p :call setreg('"', getreg('0')) <CR>
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+set list listchars=tab:>-,eol:$,trail:-
 
 " Edit routes
 command! Rroutes :e config/routes.rb

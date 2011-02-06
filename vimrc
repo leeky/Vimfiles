@@ -11,10 +11,14 @@ set backspace=
 
 set nobackup
 set nowritebackup
+set directory=$HOME/.vim/tmp//,.  "Keep swap files in one location
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set wrap " Turn on line wrapping
+set scrolloff=3 " Show 3 lines of context around the cursor
+set title
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -27,7 +31,7 @@ map Q gq
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
-  set nohlsearch
+  set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -135,6 +139,10 @@ endif
 if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
+
+" Set the statusline
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
 
 " Color scheme
 colorscheme vividchalk

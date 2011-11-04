@@ -66,13 +66,13 @@ else
 
 endif " has("autocmd")
 
-if has("folding")
- set foldenable
- set foldmethod=syntax
- set foldlevel=1
- set foldnestmax=2
- set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
-endif
+"if has("folding")
+" set foldenable
+" set foldmethod=syntax
+" set foldlevel=1
+" set foldnestmax=2
+" set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+"endif
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -82,8 +82,8 @@ set expandtab
 " Always display the status line
 set laststatus=2
 
-" <Space> is the leader character
-let mapleader = " "
+" Comma is the leader character
+let mapleader = ","
 
 " Edit the README_FOR_APP (makes :R commands work)
 map <Leader>R :e doc/README_FOR_APP<CR>
@@ -109,12 +109,6 @@ imap <Tab> <C-P>
 " Duplicate a selection
 " Visual mode: D
 vmap D y'>p
-
-" For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
-
-" No Help, please
-nmap <F1> <Esc>
 
 " Press ^F from insert mode to insert the current file name
 imap <C-F> <C-R>=expand("%")<CR>
@@ -144,10 +138,12 @@ endif
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 
-" Color scheme
-colorscheme vividchalk
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+let g:solarized_visibility="low"
+let g:solarized_hitrails=1
+let g:solarized_termcolors=256
+syntax enable
+set background=light
+colorscheme solarized
 
 " Numbers
 set number
@@ -170,40 +166,37 @@ nmap <C-K> <C-W><C-K>
 " Rails configuration
 autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
 autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
-autocmd User Rails map <Leader>p :Rstep 
-autocmd User Rails map <Leader>sp :RSstep 
-autocmd User Rails map <Leader>tp :RTstep 
-autocmd User Rails map <Leader>m :Rmodel 
-autocmd User Rails map <Leader>c :Rcontroller 
-autocmd User Rails map <Leader>v :Rview 
-autocmd User Rails map <Leader>u :Runittest 
-autocmd User Rails map <Leader>f :Rfunctionaltest 
-autocmd User Rails map <Leader>i :Rintegrationtest 
-autocmd User Rails map <Leader>h :Rhelper 
-autocmd User Rails map <Leader>tm :RTmodel 
-autocmd User Rails map <Leader>tc :RTcontroller 
-autocmd User Rails map <Leader>tv :RTview 
-autocmd User Rails map <Leader>tu :RTunittest 
-autocmd User Rails map <Leader>tf :RTfunctionaltest 
-autocmd User Rails map <Leader>ti :RTintegrationtest 
-autocmd User Rails map <Leader>sm :RSmodel 
-autocmd User Rails map <Leader>sc :RScontroller 
-autocmd User Rails map <Leader>sv :RSview 
-autocmd User Rails map <Leader>su :RSunittest 
-autocmd User Rails map <Leader>sf :RSfunctionaltest 
-autocmd User Rails map <Leader>si :RSintegrationtest 
-autocmd User Rails map <Leader>g :Rconfig 
-autocmd User Rails map <Leader>sg :RSconfig 
-autocmd User Rails map <Leader>tg :RTconfig 
-
-" NERDTree configation
-map <F2> :NERDTreeToggle<CR>
+autocmd User Rails map <Leader>p :Rstep
+autocmd User Rails map <Leader>sp :RSstep
+autocmd User Rails map <Leader>tp :RTstep
+autocmd User Rails map <Leader>m :Rmodel
+autocmd User Rails map <Leader>c :Rcontroller
+autocmd User Rails map <Leader>v :Rview
+autocmd User Rails map <Leader>u :Runittest
+autocmd User Rails map <Leader>f :Rfunctionaltest
+autocmd User Rails map <Leader>i :Rintegrationtest
+autocmd User Rails map <Leader>h :Rhelper
+autocmd User Rails map <Leader>tm :RTmodel
+autocmd User Rails map <Leader>tc :RTcontroller
+autocmd User Rails map <Leader>tv :RTview
+autocmd User Rails map <Leader>tu :RTunittest
+autocmd User Rails map <Leader>tf :RTfunctionaltest
+autocmd User Rails map <Leader>ti :RTintegrationtest
+autocmd User Rails map <Leader>sm :RSmodel
+autocmd User Rails map <Leader>sc :RScontroller
+autocmd User Rails map <Leader>sv :RSview
+autocmd User Rails map <Leader>su :RSunittest
+autocmd User Rails map <Leader>sf :RSfunctionaltest
+autocmd User Rails map <Leader>si :RSintegrationtest
+autocmd User Rails map <Leader>g :Rconfig
+autocmd User Rails map <Leader>sg :RSconfig
+autocmd User Rails map <Leader>tg :RTconfig
 
 " Remind me not to use cursor keys to navigate!
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" nnoremap <Left> :echoe "Use h"<CR>
+" nnoremap <Right> :echoe "Use l"<CR>
+" nnoremap <Up> :echoe "Use k"<CR>
+" nnoremap <Down> :echoe "Use j"<CR>
 
 " Strip trailing whitespace
 function! <SID>StripTrailingWhitespaces()

@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/leeky/.vim'
+let g:netrw_dirhist_2='/Users/leeky/.vim/bundle/vim-peepopen'
+let g:netrw_dirhist_3='/Users/leeky/Documents/eBooks & Presentations/Peepcode/peepcode-vim-code/dotvim-full'
+let g:netrw_dirhist_4='/Users/leeky/Documents/work/github/gsxsw'
+let g:netrw_dirhist_5='/Users/leeky/Documents/work/github/rails/activemodel/lib/active_model'
+let g:netrw_dirhist_6='/Users/leeky/.irssi'
+let g:netrw_dirhist_7='/Users/leeky/Development/Current_Projects/Geeks of London/nine'
+let g:netrw_dirhist_8='/Users/leeky/Development/Current_Projects/MinuteBox/indexer'

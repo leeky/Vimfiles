@@ -137,12 +137,12 @@ endif
 " Set the statusline
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-
-let g:solarized_visibility="low"
-let g:solarized_hitrails=1
-let g:solarized_termcolors=256
+" Solarized options
+let g:solarized_contrast="high"    "default value is normal
+let g:solarized_visibility="low"    "default value is normal
+let g:solarized_hitrail=1    "default value is 0
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Numbers
@@ -166,7 +166,7 @@ nmap <C-K> <C-W><C-K>
 " Rails configuration
 autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
 autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
-autocmd User Rails map <Leader>p :Rstep
+" autocmd User Rails map <Leader>p :Rstep
 autocmd User Rails map <Leader>sp :RSstep
 autocmd User Rails map <Leader>tp :RTstep
 autocmd User Rails map <Leader>m :Rmodel

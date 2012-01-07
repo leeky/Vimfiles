@@ -138,12 +138,13 @@ endif
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Solarized options
-let g:solarized_contrast="high"    "default value is normal
-let g:solarized_visibility="low"    "default value is normal
-let g:solarized_hitrail=1    "default value is 0
-syntax enable
-set background=dark
-colorscheme solarized
+"let g:solarized_contrast="high"    "default value is normal
+"let g:solarized_visibility="low"    "default value is normal
+"let g:solarized_hitrail=1    "default value is 0
+"syntax enable
+"set background=dark
+"colorscheme solarized
+colorscheme Tomorrow-Night-Bright
 
 " Numbers
 set number
